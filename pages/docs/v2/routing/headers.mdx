@@ -10,7 +10,29 @@ export const meta = {
   lastEdited: '2019-04-07T00:32:00.000Z'
 }
 
-The following headers are included in Now deployments and indicate certain factors of the environment:
+## Request Headers
+
+The following headers are sent to each Now deployment and can be used to process the request before sending back a response. These headers can be read from [Request](https://nodejs.org/api/http.html#http_message_headers) object in your programming language of choice.
+
+## `host`
+
+This header represents the domain name as it was accessed by the client. If the deployment has been aliased and the client visited the alias URL, it contains the alias instead of the underlying deployment URL.
+
+## `x-forwarded-host`
+
+This header represents the domain name of the forwarded server.
+
+## `x-forwarded-proto`
+
+This header represents the protocol of the forwarded server, typically `https` in production and `http` in development.
+
+## `x-now-deployment-url`
+
+This header represents the unique deployment, not the alias.
+
+## Response Headers
+
+The following headers are included in Now deployment responses and indicate certain factors of the environment. These headers can be viewed from the Browser's Dev Tools or using an HTTP client such as `curl -I <DEPLOYMENT_URL>`. 
 
 ## `now: 1`
 
@@ -51,7 +73,7 @@ Contains a list of [our data centers](/docs/v2/platform/regions-and-providers/) 
   <InlineCode>now.json</InlineCode> file.
 </Note>
 
-# Custom Headers
+## Custom Headers
 
 In addition to regular [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) and Now headers, it is also possible to supply your own custom headers.
 
