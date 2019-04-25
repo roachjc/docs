@@ -10,23 +10,25 @@ export const meta = {
   lastEdited: '2019-04-07T00:32:00.000Z'
 }
 
+[HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) can be found in both the HTTP Request and HTTP Response.
+
 ## Request Headers
 
 The following headers are sent to each Now deployment and can be used to process the request before sending back a response. These headers can be read from [Request](https://nodejs.org/api/http.html#http_message_headers) object in your programming language of choice.
 
-## `host`
+### `host`
 
 This header represents the domain name as it was accessed by the client. If the deployment has been aliased and the client visited the alias URL, it contains the alias instead of the underlying deployment URL.
 
-## `x-forwarded-host`
+### `x-forwarded-host`
 
 This header represents the domain name of the forwarded server.
 
-## `x-forwarded-proto`
+### `x-forwarded-proto`
 
 This header represents the protocol of the forwarded server, typically `https` in production and `http` in development.
 
-## `x-now-deployment-url`
+### `x-now-deployment-url`
 
 This header represents the unique deployment, not the alias.
 
@@ -34,15 +36,15 @@ This header represents the unique deployment, not the alias.
 
 The following headers are included in Now deployment responses and indicate certain factors of the environment. These headers can be viewed from the Browser's Dev Tools or using an HTTP client such as `curl -I <DEPLOYMENT_URL>`. 
 
-## `now: 1`
+### `now: 1`
 
 This header is used for identifying a response coming from [the Now platform](/docs/v2/platform/overview/).
 
-## `server: now`
+### `server: now`
 
 Similar to [`now: 1`](#now:-1). This header can be overridden by other proxies (e.g., Cloudflare).
 
-## `x-now-cache`
+### `x-now-cache`
 
 This header's value indicates whether the response was served from ZEIT's edge cache.
 
@@ -58,11 +60,11 @@ The following values are possible when the content being served [is static](/doc
 | <RequestHeader>UPDATING</RequestHeader>    | The response is stale as the entry is currently being updated due to a previous request.                                                         |
 | <RequestHeader>REVALIDATED</RequestHeader> | The response from the cache was stale but it was revalidated by checking `If-Modified-Since` or `If-None-Match` headers.                         |
 
-## `x-now-id`
+### `x-now-id`
 
 The unique identifier for each request.
 
-## `x-now-trace`
+### `x-now-trace`
 
 Contains a list of [our data centers](/docs/v2/platform/regions-and-providers/) through which the request has traversed, usually the data center closest to you.
 
@@ -75,8 +77,8 @@ Contains a list of [our data centers](/docs/v2/platform/regions-and-providers/) 
 
 ## Custom Headers
 
-In addition to regular [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) and Now headers, it is also possible to supply your own custom headers.
+In addition to regular [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) and Now headers, it is also possible to supply your own custom response headers.
 
-Custom headers are added in the same way regular headers are, by making an addition to the `routes` property in your `now.json` file.
+Custom headers are added in the same way regular headers are, by making an addition to the [routes](/docs/v2/deployments/routes/#headers) property in your `now.json` file.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
