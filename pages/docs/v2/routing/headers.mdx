@@ -14,7 +14,7 @@ export const meta = {
 
 ## Request Headers
 
-The following headers are sent to each Now deployment and can be used to process the request before sending back a response. These headers can be read from [Request](https://nodejs.org/api/http.html#http_message_headers) object in your programming language of choice.
+The following headers are sent to each Now deployment and can be used to process the request before sending back a response. These headers can be read from the [Request](https://nodejs.org/api/http.html#http_message_headers) object in your [Lambda](/docs/v2/deployments/concepts/lambdas/).
 
 ### `host`
 
@@ -77,8 +77,6 @@ Contains a list of [our data centers](/docs/v2/platform/regions-and-providers/) 
 
 ## Custom Headers
 
-In addition to regular [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) and Now headers, it is also possible to supply your own custom response headers.
-
-Custom headers are added in the same way regular headers are, by making an addition to the [routes](/docs/v2/deployments/routes/#headers) property in your `now.json` file.
+Custom headers can be added dynamically to the [Response](https://nodejs.org/api/http.html#http_response_setheader_name_value) object in your [Lambda](/docs/v2/deployments/concepts/lambdas/) or they can be added statically to the [routes](/docs/v2/deployments/routes/#headers) property in your `now.json` file.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
