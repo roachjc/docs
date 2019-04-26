@@ -22,7 +22,7 @@ This header represents the domain name as it was accessed by the client. If the 
 
 ### `x-forwarded-host`
 
-This header represents the domain name of the forwarded server.
+This header is identical to the `host` header.
 
 ### `x-forwarded-proto`
 
@@ -30,7 +30,7 @@ This header represents the protocol of the forwarded server, typically `https` i
 
 ### `x-now-deployment-url`
 
-This header represents the unique deployment, not the alias.
+This header represents the unique deployment, not the alias. For example, `test-5uyfnapzg.now.sh`.
 
 ## Response Headers
 
@@ -57,8 +57,6 @@ The following values are possible when the content being served [is static](/doc
 | <RequestHeader>BYPASS</RequestHeader>      | The cache was bypassed and so the response was served from an origin server.                                                                     |
 | <RequestHeader>EXPIRED</RequestHeader>     | The entry in the cache has expired. The response is served from an origin server.                                                                |
 | <RequestHeader>STALE</RequestHeader>       | The response from the cache is outdated but another visitor has already requested the response and the edge node is processing the revalidation. |
-| <RequestHeader>UPDATING</RequestHeader>    | The response is stale as the entry is currently being updated due to a previous request.                                                         |
-| <RequestHeader>REVALIDATED</RequestHeader> | The response from the cache was stale but it was revalidated by checking `If-Modified-Since` or `If-None-Match` headers.                         |
 
 ### `x-now-id`
 
