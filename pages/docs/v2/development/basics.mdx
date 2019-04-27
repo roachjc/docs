@@ -1,0 +1,17 @@
+import Doc from '~/components/layout/docs'
+import { TerminalInput } from '~/components/text/terminal'
+import { GenericLink } from '~/components/text/link'
+import { InlineCode } from '~/components/text/code'
+import { Image } from '~/components/media'
+import Caption from '~/components/text/caption'
+import Card from '~/components/card'
+
+export const meta = {
+  title: 'Development Basics',
+  description:
+    'Learning the basics of developing any application with ZEIT Now.',
+  editUrl: 'pages/docs/v2/development/basics.mdx',
+  lastEdited: '2019-04-27T00:49:55.000Z'
+}
+
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
